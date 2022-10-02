@@ -4,19 +4,19 @@ clusters = {
 1: [[1]]
 }
 def add_num_to_dict(num):
-global clusters
-running_list = []
-for i in range(1, num+1):
-for combos in clusters[num-i]:
-for p in combos:
-running_list.append([i,p])
-clusters[num] = [running_list]
+    global clusters
+    running_list = []
+    for i in range(1, num+1):
+        for combos in clusters[num-i]:
+            for p in combos:
+                running_list.append([i,p])
+    clusters[num] = [running_list]
 num_of_users = int(input("Enter the number of User(s): "))
 print("\n")
 for num in range(2, num_of_users+1):
-add_num_to_dict(num)
+    add_num_to_dict(num)
 for key in clusters.keys():
-print("---- Clusters for", key, "User(s) are---------")
-for i in clusters[key]:
-print(i)
-print("Total Clusters: ", len(i), "\n")
+    print("---- Clusters for", key, "User(s) are---------")
+    for i in clusters[key]:
+        print(i)
+        print("Total Clusters: ", len(i), "\n")
